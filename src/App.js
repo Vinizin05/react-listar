@@ -3,6 +3,7 @@ import react, { useState } from "react";
 import "./App.css";
 import Tasks from "./componentes/tasks";
 import AddTask from "./componentes/AddTask";
+import Task from "./componentes/task";
 
 
 const App = () => {
@@ -19,10 +20,25 @@ const App = () => {
       }
     ]);
 
+    const handleTaskAddition = (tasktitle) => {
+      const newTasks = [
+            ...tasks,
+            {
+
+                title: tasktitle,
+                id: Math.random(10),
+                completed: false,
+            },
+      ];
+
+      setTasks(newTasks)
+
+    };
+
     return(
         <>
         <div className="container">
-          <AddTask />
+          <AddTask handleTaskAddition={handleTaskAddition} />
           <Tasks tasks={tasks} />
         </div>
         </>
