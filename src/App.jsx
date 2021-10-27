@@ -1,6 +1,7 @@
 import react, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import Header from "./componentes/Header";
 import "./App.css";
 import Tasks from "./componentes/tasks";
 import AddTask from "./componentes/AddTask";
@@ -52,6 +53,7 @@ const App = () => {
   return (
     <>
       <div className="container">
+      <Header />
         <AddTask handleTaskAddition={handleTaskAddition} />
         <Tasks
           tasks={tasks}
