@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import "./AddTask.css";
 
-const AddTask = ({ handleTaskAddition }) => {
+const AddTask = ({ handleTaskAddition,  }) => {
   const [inputData, setInputData] = useState("");
 
   const handleInputChange = (e) => {
@@ -15,6 +15,13 @@ const AddTask = ({ handleTaskAddition }) => {
     setInputData("");
   };
 
+  function handleEnter(e){
+    if (e.keyCode !== 13) { return }
+    
+      else {handleAddTaskClick()}
+    
+  }
+
   return (
     <div className="add-task-container">
       <input
@@ -22,6 +29,7 @@ const AddTask = ({ handleTaskAddition }) => {
         value={inputData}
         className="add-task-input"
         type="text"
+        onKeyUp={handleEnter}
       />
 
       <div className="add-task-button-container">
